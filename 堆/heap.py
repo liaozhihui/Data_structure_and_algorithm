@@ -1,7 +1,7 @@
 
 
 class Heap:
-    def __init__(self,list):
+    def __init__(self,list=[]):
         self.heap=list
         self.create_heap()
 
@@ -29,6 +29,8 @@ class Heap:
             return
         for i in range(1, len(self.heap)):
             self.swim(i)
+    def isEmpty(self):
+        return not len(self.heap)>0
 
     def insert(self,num):
 
@@ -37,7 +39,8 @@ class Heap:
 
 
     def sink(self,index):
-
+        if len(self.heap)==0:
+            return
         node_value = self.heap[index]
 
         while self.getLeft(index) < len(self.heap):
@@ -60,6 +63,9 @@ class Heap:
         self.heap[index] = node_value
 
     def pop(self):
+        if len(self.heap) == 0:
+            return None
+
         top = self.heap[0]
         tail = self.heap[-1]
         self.heap[0] = tail
@@ -69,12 +75,32 @@ class Heap:
 
 
 if __name__ == '__main__':
-    heap = Heap([5,9,0,3,8,4,2,7,6])
+    # heap = Heap([5,9,0,3,8,4,2,7,6])
+    # print(heap.heap)
+    # heap.insert(1)
+    # print(heap.heap)
+    # heap.pop()
+    # print(heap.heap)
+    heap = Heap([])
+    heap.insert(0)
+    heap.insert(0)
+    heap.insert(3)
+    heap.insert(7)
+    heap.insert(10)
+    heap.insert(4)
+
+
     print(heap.heap)
-    heap.insert(1)
+    while not heap.isEmpty():
+        print(heap.pop())
     print(heap.heap)
-    heap.pop()
-    print(heap.heap)
+
+
+
+
+
+
+
 
 
 
