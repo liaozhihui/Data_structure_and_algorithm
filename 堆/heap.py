@@ -14,7 +14,6 @@ class Heap:
     def getParent(self,index):
         return (index-1)//2
 
-
     def swim(self,index):
 
         node_value = self.heap[index]
@@ -62,8 +61,6 @@ class Heap:
                 break
         self.heap[index] = node_value
 
-
-
     def pop(self):
         top = self.heap[0]
         tail = self.heap[-1]
@@ -71,11 +68,6 @@ class Heap:
         self.heap.pop()
         self.sink(0)
         return top
-
-
-
-
-
 
 
 if __name__ == '__main__':
