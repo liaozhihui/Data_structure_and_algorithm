@@ -23,8 +23,6 @@ class Heap:
             self.heap[index] = self.heap[self.getParent(index)]
             index = self.getParent(index)
         self.heap[index] = node_value
-
-
     def create_heap(self):
         #遍历每个节点进行上浮操作
         if len(self.heap) <= 1:
